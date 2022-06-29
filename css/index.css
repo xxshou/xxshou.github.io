@@ -1,0 +1,114 @@
+     /*简单初始化*/
+     
+     html {
+         font-size: 100px;
+         /*设置html字体大小以便rem*/
+     }
+     
+     html,
+     body {
+         margin: 0;
+         padding: 0;
+         width: 100%;
+         height: 100%;
+     }
+     
+     ul {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+     }
+     
+     a {
+         text-decoration: none;
+     }
+     /*正文内容*/
+     
+     .t_container {
+         width: 100%;
+         height: 110%;
+         margin: 0 auto;
+         background: url('../img/bg.png') no-repeat;
+         background-size: 100% 100%;
+     }
+     
+     .t_h_bg {
+         width: 100%;
+         height: 10%;
+         text-align: center;
+         line-height: 80px;
+         background: url('../img/t_header.png') no-repeat;
+         background-size: 100% 100%;
+     }
+     
+     .t_main {
+         text-align: center;
+         width: 100%;
+         height: 100%;
+     }
+     
+     .t_box_l {
+         width: 25%;
+         height: 75%;
+         float: left;
+         left: 5%;
+         position: relative;
+     }
+     
+     .t_box_m {
+         width: 50%;
+         height: 90%;
+         float: left;
+         position: relative;
+     }
+     
+     .t_box_r {
+         width: 25%;
+         height: 75%;
+         float: right;
+         right: 5%;
+         position: relative;
+     }
+     
+     .t_box {
+         width: 100%;
+         height: 33%;
+         float: left;
+         position: relative;
+         border: 1px solid blue;
+         border-radius: 10px;
+         margin-top: 2%;
+         box-shadow: 0 0 30px rgb(0, 153, 184) inset, 0 0 10px rgb(0, 153, 184);
+     }
+     
+     .t_box2_1 {
+         width: 100%;
+         height: 100%;
+         background: url('../img/333.png') no-repeat;
+         background-size: 100% 70%;
+         float: left;
+         position: relative;
+         margin-top: 1%;
+     }
+     
+     .t_box2 {
+         width: 100%;
+         height: 35%;
+         background: url('../img/t_bg.png') no-repeat;
+         background-size: 100% 100%;
+         float: left;
+         position: relative;
+     }
+     
+     .t_box3 {
+         width: 100%;
+         height: 50%;
+         background: url('../img/t_bg.png') no-repeat;
+         background-size: 100% 100%;
+         float: right;
+         position: relative;
+         border: 1px solid blue;
+         margin-top: 2%;
+         border-radius: 10px;
+         box-shadow: 0 0 30px rgb(0, 153, 184) inset, 0 0 10px rgb(0, 153, 184);
+     }

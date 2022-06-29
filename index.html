@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/index.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/echart3.js"></script>
+    <script type="text/javascript" src="js/echarts-wordcloud.js"></script>
+    <script src='js/jquery.js'></script>
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <div class="t_container">
+        <header class="t_h_bg">
+            <span style="font-size: 35px;color: #ffffff;">第六次人口普查数据分析</span>
+        </header>
+        <main class="t_main">
+            <div class="t_box_l">
+                <div class="t_box" id="main1"></div>
+                <div class="t_box" id="main5"></div>
+                <div class="t_box" id="main6"></div>
+
+            </div>
+            <div class="t_box_m">
+                <div class="t_box2_1" id="main2"></div>
+
+            </div>
+            <div class="t_box_r">
+                <div class="t_box3" id="main3"></div>
+
+                <div class="t_box3" id="main4"></div>
+            </div>
+            <script type="text/javascript">
+                data_num = [{
+                        "sex": "男",
+                        "value": 1012.6430,
+                        "spname": "北    京"
+                    }, {
+                        "sex": "男",
+                        "value": 690.7091,
+                        "spname": "天    津"
+                    }, {
+                        "sex": "男",
+                        "value": 3643.0286,
+                        "spname": "河    北"
+                    }, {
+                        "sex": "男",
+                        "value": 1833.8760,
+                        "spname": "山    西"
+                    }, {
+                        "sex": "男",
+                        "value": 1283.8243,
+                        "spname": "内 蒙 古"
+                    }, {
+                        "sex": "男",
+                        "value": 2214.7745,
+                        "spname": "辽    宁"
+                    }, {
+                        "sex": "男",
+                        "value": 1390.7218,
+                        "spname": "吉    林"
+                    }, {
+                        "sex": "男",
+                        "value": 1942.6106,
+                        "spname": "黑 龙 江"
+                    }, {
+                        "sex": "男",
+                        "value": 1185.4916,
+                        "spname": "上    海"
+                    }, {
+                        "sex": "男",
+                        "value": 3962.6707,
+                        "spname": "江    苏"
+                    }, {
+                        "sex": "男",
+                        "value": 2796.5641,
+                        "spname": "浙    江"
+                    }, {
+                        "sex": "男",
+                        "value": 3024.5513,
+                        "spname": "安    徽"
+                    }, {
+                        "sex": "男",
+                        "value": 1898.1054,
+                        "spname": "福    建"
+                    }, {
+                        "sex": "男",
+                        "value": 2300.3521,
+                        "spname": "江    西"
+                    }, {
+                        "sex": "男",
+                        "value": 4844.6944,
+                        "spname": "山    东"
+                    }, {
+                        "sex": "男",
+                        "value": 4749.3063,
+                        "spname": "河    南"
+                    }, {
+                        "sex": "男",
+                        "value": 2939.1247,
+                        "spname": "湖    北"
+                    }, {
+                        "sex": "男",
+                        "value": 3377.6459,
+                        "spname": "湖    南"
+                    }, {
+                        "sex": "男",
+                        "value": 5440.0538,
+                        "spname": "广    东"
+                    }, {
+                        "sex": "男",
+                        "value": 2392.4704,
+                        "spname": "广    西"
+                    }, {
+                        "sex": "男",
+                        "value": 459.2283,
+                        "spname": "海    南"
+                    }, {
+                        "sex": "男",
+                        "value": 1460.8870,
+                        "spname": "重    庆"
+                    }, {
+                        "sex": "男",
+                        "value": 4082.7834,
+                        "spname": "四    川"
+                    }, {
+                        "sex": "男",
+                        "value": 1790.5471,
+                        "spname": "贵    州"
+                    }, {
+                        "sex": "男",
+                        "value": 2385.6696,
+                        "spname": "云    南"
+                    }, {
+                        "sex": "男",
+                        "value": 154.2652,
+                        "spname": "西    藏"
+                    }, {
+                        "sex": "男",
+                        "value": 1928.7575,
+                        "spname": "陕    西"
+                    }, {
+                        "sex": "男",
+                        "value": 1306.4193,
+                        "spname": "甘    肃"
+                    }, {
+                        "sex": "男",
+                        "value": 291.3793,
+                        "spname": "青    海"
+                    }, {
+                        "sex": "男",
+                        "value": 3227.404,
+                        "spname": "宁    夏"
+                    }, {
+                        "sex": "男",
+                        "value": 1127.0147,
+                        "spname": "新    疆"
+                    }, {
+                        "sex": "女",
+                        "value": 948.5938,
+                        "spname": "北    京"
+                    }, {
+                        "sex": "女",
+                        "value": 603.1602,
+                        "spname": "天    津"
+                    }, {
+                        "sex": "女",
+                        "value": 3542.3924,
+                        "spname": "河    北"
+                    }, {
+                        "sex": "女",
+                        "value": 1737.3341,
+                        "spname": "山    西"
+                    }, {
+                        "sex": "女",
+                        "value": 1186.8048,
+                        "spname": "内 蒙 古"
+                    }, {
+                        "sex": "女",
+                        "value": 2159.8578,
+                        "spname": "辽    宁"
+                    }, {
+                        "sex": "女",
+                        "value": 1354.5597,
+                        "spname": "吉    林"
+                    }, {
+                        "sex": "女",
+                        "value": 1888.7885,
+                        "spname": "黑 龙 江"
+                    }, {
+                        "sex": "女",
+                        "value": 1116.4280,
+                        "spname": "上    海"
+                    }, {
+                        "sex": "女",
+                        "value": 3903.4234,
+                        "spname": "江    苏"
+                    }, {
+                        "sex": "女",
+                        "value": 2646.1250,
+                        "spname": "浙    江"
+                    }, {
+                        "sex": "女",
+                        "value": 2925.4955,
+                        "spname": "安    徽"
+                    }, {
+                        "sex": "女",
+                        "value": 1791.3163,
+                        "spname": "福    建"
+                    }, {
+                        "sex": "女",
+                        "value": 2156.4276,
+                        "spname": "江    西"
+                    }, {
+                        "sex": "女",
+                        "value": 4734.5775,
+                        "spname": "山    东"
+                    }, {
+                        "sex": "女",
+                        "value": 4653.6876,
+                        "spname": "河    南"
+                    }, {
+                        "sex": "女",
+                        "value": 2784.6480,
+                        "spname": "湖    北"
+                    }, {
+                        "sex": "女",
+                        "value": 3192.4303,
+                        "spname": "湖    南"
+                    }, {
+                        "sex": "女",
+                        "value": 4991.9921,
+                        "spname": "广    东"
+                    }, {
+                        "sex": "女",
+                        "value": 2209.9057,
+                        "spname": "广    西"
+                    }, {
+                        "sex": "女",
+                        "value": 407.9202,
+                        "spname": "海    南"
+                    }, {
+                        "sex": "女",
+                        "value": 1423.7300,
+                        "spname": "重    庆"
+                    }, {
+                        "sex": "女",
+                        "value": 3958.9694,
+                        "spname": "四    川"
+                    }, {
+                        "sex": "女",
+                        "value": 1684.3085,
+                        "spname": "贵    州"
+                    }, {
+                        "sex": "女",
+                        "value": 2211.0070,
+                        "spname": "云    南"
+                    }, {
+                        "sex": "女",
+                        "value": 145.9513,
+                        "spname": "西    藏"
+                    }, {
+                        "sex": "女",
+                        "value": 1803.9804,
+                        "spname": "陕    西"
+                    }, {
+                        "sex": "女",
+                        "value": 1251.1070,
+                        "spname": "甘    肃"
+                    }, {
+                        "sex": "女",
+                        "value": 271.2930,
+                        "spname": "青    海"
+                    }, {
+                        "sex": "女",
+                        "value": 307.3946,
+                        "spname": "宁    夏"
+                    }, {
+                        "sex": "女",
+                        "value": 1054.5668,
+                        "spname": "新    疆"
+                    }
+
+                ];
+                var myChart1 = echarts.init(document.getElementById("main1"));
+                // myChart1.setOption({
+
+                // });
+                myChart1.showLoading();
+
+                //var data = JSON.parse(data);
+                var boy = [];
+                var girl = [];
+                var listsp = [];
+                for (var i = 0; i < data_num.length; i++) {
+
+                    if (data_num[i].sex == '男') {
+                        boy.push(data_num[i].value);
+                        listsp.push(data_num[i].spname);
+                    } else {
+                        girl.push(data_num[i].value);
+                    }
+                }
+
+                myChart1.setOption({
+                    color: ["#fff435", "#a4eaff"],
+                    title: {
+                        text: '男女总人数',
+                        subtext: '单位：万人',
+                        textStyle: {
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: 20
+                        }
+
+
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['女', '男'],
+                        orient: 'vertical',
+                        x: '70%',
+                        textStyle: { //图例文字的样式
+                            color: '#ccc',
+                            fontSize: 12
+                        }
+
+                    },
+                    grid: {
+                        left: '1%',
+                        right: "20%",
+                        top: '25%',
+                        bottom: '5%',
+                        containLabel: true
+                    },
+
+                    xAxis: [{
+                        name: '城市',
+                        type: 'category',
+                        data: listsp,
+
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        }
+                    }],
+                    yAxis: [{
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        },
+                        scale: true,
+                        show: true,
+                        splitLine: {
+                            show: false
+                        }
+                    }],
+                    toolbox: {
+                        show: true,
+
+                        saveAsImage: {
+                            show: true
+                        }
+
+                    },
+
+
+                    dataZoom: [{
+                        type: 'inside',
+                        realtime: true,
+                        start: 0,
+                        end: 70
+                            // }, {
+                            //     show: true,
+                            //     realtime: true,
+                            //     height: 24, //这里可以设置dataZoom的尺寸
+                            //     bottom: 6,
+                            //     start: 0,
+                            //     end: zoom,
+                            //     backgroundColor: '#1d76e6', // 填充颜色
+                            //     textStyle: {
+                            //         color: '#fff' // 左右两边文字颜色
+                            //     }
+                    }],
+
+
+                    calculable: true,
+                    series: [{
+                        name: '女',
+                        type: 'bar',
+                        data: girl,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: 'Max'
+                            }, {
+                                type: 'min',
+                                name: 'Min'
+                            }]
+                        },
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: 'Avg'
+                            }]
+                        },
+                    }, {
+                        name: '男',
+                        type: 'bar',
+                        data: boy,
+                        markPoint: {
+                            data: [{
+                                name: 'Max',
+                                value: 182.2,
+                                xAxis: 7,
+                                yAxis: 183
+                            }, {
+                                name: 'Min',
+                                value: 2.3,
+                                xAxis: 11,
+                                yAxis: 3
+                            }]
+                        },
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: 'Avg'
+                            }]
+                        }
+                    }],
+
+
+
+                });
+                setTimeout(function() {
+                    myChart1.hideLoading();
+                }, 500);
+                data_sur = [{
+                        "sur": "死亡人数",
+                        "value": 7.7298,
+                        "spname": "北    京"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 5.3568,
+                        "spname": "天    津"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 44.9874,
+                        "spname": "河    北"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 19.2501,
+                        "spname": "山    西"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 11.5964,
+                        "spname": "内 蒙 古"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 28.1374,
+                        "spname": "辽    宁"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 13.5582,
+                        "spname": "吉    林"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 19.3648,
+                        "spname": "黑 龙 江"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 11.4289,
+                        "spname": "上    海"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 48.9814,
+                        "spname": "江    苏"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 29.7000,
+                        "spname": "浙    江"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 35.1844,
+                        "spname": "安    徽"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 18.4485,
+                        "spname": "福    建"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 23.3244,
+                        "spname": "江    西"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 60.0206,
+                        "spname": "山    东"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 50.9591,
+                        "spname": "河    南"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 30.7998,
+                        "spname": "湖    北"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 37.8293,
+                        "spname": "湖    南"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 44.2990,
+                        "spname": "广    东"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 25.1221,
+                        "spname": "广    西"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 3.4787,
+                        "spname": "海    南"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 18.5409,
+                        "spname": "重    庆"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 53.2498,
+                        "spname": "四    川"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 21.0678,
+                        "spname": "贵    州"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 29.1656,
+                        "spname": "云    南"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 1.5921,
+                        "spname": "西    藏"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 20.0591,
+                        "spname": "陕    西"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 13.7560,
+                        "spname": "甘    肃"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 3.0287,
+                        "spname": "青    海"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 3.1871,
+                        "spname": "宁    夏"
+                    }, {
+                        "sur": "死亡人数",
+                        "value": 8.9948,
+                        "spname": "新    疆"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 11.5987,
+                        "spname": "北    京"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 8.1977,
+                        "spname": "天    津"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 88.2233,
+                        "spname": "河    北"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 34.7160,
+                        "spname": "山    西"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 20.4920,
+                        "spname": "内 蒙 古"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 26.4854,
+                        "spname": "辽    宁"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 17.7304,
+                        "spname": "吉    林"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 24.8961,
+                        "spname": "黑 龙 江"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 12.8518,
+                        "spname": "上    海"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 68.5177,
+                        "spname": "江    苏"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 44.4178,
+                        "spname": "浙    江"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 75.1580,
+                        "spname": "安    徽"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 40.1732,
+                        "spname": "福    建"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 58.0921,
+                        "spname": "江    西"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 98.2207,
+                        "spname": "山    东"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 10.44716,
+                        "spname": "河    南"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 59.2626,
+                        "spname": "湖    北"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 79.6975,
+                        "spname": "湖    南"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 108.3819,
+                        "spname": "广    东"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 71.5349,
+                        "spname": "广    西"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 12.1636,
+                        "spname": "海    南"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 26.3380,
+                        "spname": "重    庆"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 74.3017,
+                        "spname": "四    川"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 48.1717,
+                        "spname": "贵    州"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 56.4346,
+                        "spname": "云    南"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 4.5731,
+                        "spname": "西    藏"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 33.5229,
+                        "spname": "陕    西"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 27.8921,
+                        "spname": "甘    肃"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 7.2363,
+                        "spname": "青    海"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 7.6000,
+                        "spname": "宁    夏"
+                    }, {
+                        "sur": "出生人数",
+                        "value": 32.2653,
+                        "spname": "新    疆"
+                    }
+
+
+
+                ];
+
+                var myChart2 = echarts.init(document.getElementById("main5"));
+                myChart2.showLoading();
+
+
+
+
+                //var data = JSON.parse(data);
+                var new_pup = [];
+                var die = [];
+                var listsp = [];
+                for (var i = 0; i < data_sur.length; i++) {
+
+                    if (data_sur[i].sur == '出生人数') {
+                        new_pup.push(data_sur[i].value);
+                        listsp.push(data_sur[i].spname);
+                    } else {
+                        die.push(data_sur[i].value);
+                    }
+                }
+                myChart2.setOption({
+                    color: ["#fff435", "#a4eaff"],
+                    title: {
+                        text: '出生人数和死亡人数',
+                        subtext: '单位：万人',
+                        textStyle: {
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: 20
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            lineStyle: {
+                                color: "#dddc6b"
+                            }
+                        }
+                    },
+                    legend: {
+                        data: ['出生人数', '死亡人数'],
+                        top: '10%',
+                        textStyle: { //图例文字的样式
+                            color: '#ccc',
+
+                        }
+                    },
+                    grid: {
+                        left: '1%',
+                        right: "20%",
+                        top: '25%',
+                        bottom: '10%',
+                        containLabel: true
+                    },
+
+
+                    xAxis: {
+
+                        type: 'category',
+
+                        data: listsp,
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        },
+                        scale: true,
+                        show: true,
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        },
+                        scale: true,
+                        show: true,
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    dataZoom: [{
+                        type: 'inside',
+                        realtime: true,
+                        start: 0,
+                        end: 70
+                            // }, {
+                            //     show: true,
+                            //     realtime: true,
+                            //     height: 24, //这里可以设置dataZoom的尺寸
+                            //     bottom: 6,
+                            //     start: 0,
+                            //     end: zoom,
+                            //     backgroundColor: '#1d76e6', // 填充颜色
+                            //     textStyle: {
+                            //         color: '#fff' // 左右两边文字颜色
+                            //     }
+                    }],
+                    series: [{
+                        name: '出生人数',
+                        type: 'line',
+
+                        data: new_pup,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: 'Max'
+                            }, {
+                                type: 'min',
+                                name: 'Min'
+                            }]
+                        },
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: 'Avg'
+                            }]
+                        },
+                        lineStyle: {
+                            shadowColor: "#5cfbff", //透明的颜色
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1, //透明度
+                            shadowBlur: 8, //阴影大小
+                            type: "solid", //实线
+                            width: 2,
+                        },
+
+                    }, {
+                        name: '死亡人数',
+                        type: 'line',
+
+                        data: die,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: 'Max'
+                            }, {
+                                type: 'min',
+                                name: 'Min'
+                            }]
+                        },
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: 'Avg'
+                            }]
+                        },
+                        lineStyle: {
+                            shadowColor: "#5cfbff", //透明的颜色
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1, //透明度
+                            shadowBlur: 8, //阴影大小
+                            type: "solid", //实线
+                            width: 2,
+                        },
+                    }, ]
+                });
+
+                setTimeout(function() {
+                    myChart2.hideLoading();
+                }, 500);
+
+
+
+                data_pie = [
+
+
+                    {
+                        "value": 115987,
+                        "name": "北    京"
+                    }, {
+                        "value": 81977,
+                        "name": "天    津"
+                    }, {
+                        "value": 882233,
+                        "name": "河    北"
+                    }, {
+                        "value": 347160,
+                        "name": "山    西"
+                    }, {
+                        "value": 204920,
+                        "name": "内 蒙 古"
+                    }, {
+                        "value": 264854,
+                        "name": "辽    宁"
+                    }, {
+                        "value": 177304,
+                        "name": "吉    林"
+                    }, {
+                        "value": 248961,
+                        "name": "黑 龙 江"
+                    }, {
+                        "value": 128518,
+                        "name": "上    海"
+                    }, {
+                        "value": 685177,
+                        "name": "江    苏"
+                    }, {
+                        "value": 444178,
+                        "name": "浙    江"
+                    }, {
+                        "value": 751580,
+                        "name": "安    徽"
+                    }, {
+                        "value": 401732,
+                        "name": "福    建"
+                    }, {
+                        "value": 580921,
+                        "name": "江    西"
+                    }, {
+                        "value": 982207,
+                        "name": "山    东"
+                    }, {
+                        "value": 1044716,
+                        "name": "河    南"
+                    }, {
+                        "value": 592626,
+                        "name": "湖    北"
+                    }, {
+                        "value": 796975,
+                        "name": "湖    南"
+                    }, {
+                        "value": 1083819,
+                        "name": "广    东"
+                    }, {
+                        "value": 715349,
+                        "name": "广    西"
+                    }, {
+                        "value": 121636,
+                        "name": "海    南"
+                    }, {
+                        "value": 263380,
+                        "name": "重    庆"
+                    }, {
+                        "value": 743017,
+                        "name": "四    川"
+                    }, {
+                        "value": 481717,
+                        "name": "贵    州"
+                    }, {
+                        "value": 564346,
+                        "name": "云    南"
+                    }, {
+                        "value": 45731,
+                        "name": "西    藏"
+                    }, {
+                        "value": 335229,
+                        "name": "陕    西"
+                    }, {
+                        "value": 278921,
+                        "name": "甘    肃"
+                    }, {
+                        "value": 72363,
+                        "name": "青    海"
+                    }, {
+                        "value": 76000,
+                        "name": "宁    夏"
+                    }, {
+                        "value": 322653,
+                        "name": "新    疆"
+                    }
+
+
+                ];
+
+                var myChart3 = echarts.init(document.getElementById("main3"));
+                myChart3.showLoading();
+
+
+
+                myChart3.setOption({
+                    color: ["#4A4AFF", "#6A6AFF", "#2894FF", "#84c1ff", '#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+
+                    title: {
+                        text: '出生人口占比',
+                        subtext: '饼图百分比',
+                        left: 'center',
+                        textStyle: {
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: 20
+                        }
+                    },
+                    grid: {
+                        left: '30%',
+                        right: "30%",
+                        top: '2%',
+                        bottom: '10%',
+                        containLabel: true
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    legend: {
+                        bottom: 10,
+                        left: 'center',
+                        data: [],
+                        textStyle: { //图例文字的样式
+                            color: '#ccc',
+                            fontSize: 12
+                        },
+                    },
+
+                    series: [{
+                        name: "出生人口",
+                        type: 'pie',
+                        radius: '40%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'area',
+                        data: data_pie,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+
+                    }],
+
+                })
+
+                setTimeout(function() {
+                    myChart3.hideLoading();
+                }, 500);
+
+
+
+
+                data_study = [{
+                        "value": 3.795,
+                        "name": "未上学"
+                    }, {
+                        "value": 34.848,
+                        "name": "小学"
+                    }, {
+                        "value": 42.642,
+                        "name": "初中"
+                    }, {
+                        "value": 12.139,
+                        "name": "高中"
+                    }, {
+                        "value": 4.143,
+                        "name": "大学专科"
+                    }, {
+                        "value": 2.285,
+                        "name": "大学本科"
+                    }, {
+                        "value": 0.148,
+                        "name": "研究生"
+                    }
+
+
+
+                ];
+                var myChart4 = echarts.init(document.getElementById("main4"));
+                myChart4.showLoading();
+
+                myChart4.setOption({
+                    title: {
+                        text: '广西15岁以上受教育程度',
+                        subtext: '单位：万人',
+                        textStyle: {
+                            color: 'white',
+                            fontWeight: 'bold',
+
+                        }
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 0,
+                        y: 50,
+                        data: ['受教育程度人数'],
+                        textStyle: { //图例文字的样式
+                            color: '#ccc',
+                            fontSize: 12
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        confine: true,
+                        enterable: true,
+                    },
+                    radar: {
+                        // shape: 'circle',
+                        indicator: [{
+                            name: '未上学',
+                            max: 500
+                        }, {
+                            name: '小学',
+                            max: 2000
+                        }, {
+                            name: '初中',
+                            max: 2000
+                        }, {
+                            name: '高中',
+                            max: 1000
+                        }, {
+                            name: '大学专科',
+                            max: 500
+                        }, {
+                            name: '大学本科',
+                            max: 500
+                        }, {
+                            name: '研究生',
+                            max: 100
+                        }],
+                        center: ['46%', '50%'], // 位置
+                        radius: 100, //大小
+                        startAngle: 90,
+                        splitNumber: 4,
+                        shape: 'circle',
+                        name: {
+                            formatter: '{value}',
+                            textStyle: {
+                                color: 'aqua' // 文字颜色
+                            }
+                        },
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(114, 172, 209, 0.1)',
+                                    'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)',
+                                    'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)'
+                                ], //圆环颜色
+                                shadowColor: 'aqua', // 圆颜色
+                                shadowBlur: 10
+                            }
+                        },
+                    },
+                    series: [
+
+                        {
+                            name: '受教育程度人数',
+                            type: 'radar',
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            color: ['#5bc2e7'],
+                            lineStyle: {
+                                shadowColor: "#5cfbff", //透明的颜色
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1, //透明度
+                                shadowBlur: 8, //阴影大小
+                                type: "solid", //实线
+                                width: 2,
+                            },
+                            data: [{
+                                value: [158.7939, 1457.9571, 1784.0416, 507.8715, 173.3473, 95.5852, 6.1876],
+                                name: '受教育程度'
+                            }]
+                        }
+                    ]
+                })
+
+                setTimeout(function() {
+                    myChart4.hideLoading();
+                }, 500);
+
+
+                onload = function() {
+                    var data = {
+                        value: [{
+                            "value": 7355291,
+                            "name": "北    京"
+                        }, {
+                            "value": 3963604,
+                            "name": "天    津"
+                        }, {
+                            "value": 20813492,
+                            "name": "河    北"
+                        }, {
+                            "value": 10654162,
+                            "name": "山    西"
+                        }, {
+                            "value": 8470472,
+                            "name": "内 蒙 古"
+                        }, {
+                            "value": 15334912,
+                            "name": "辽    宁"
+                        }, {
+                            "value": 9162183,
+                            "name": "吉    林"
+                        }, {
+                            "value": 13192935,
+                            "name": "黑 龙 江"
+                        }, {
+                            "value": 8893483,
+                            "name": "上    海"
+                        }, {
+                            "value": 25635291,
+                            "name": "江    苏"
+                        }, {
+                            "value": 20060115,
+                            "name": "浙    江"
+                        }, {
+                            "value": 19322432,
+                            "name": "安    徽"
+                        }, {
+                            "value": 11971873,
+                            "name": "福    建"
+                        }, {
+                            "value": 11847841,
+                            "name": "江    西"
+                        }, {
+                            "value": 30794664,
+                            "name": "山    东"
+                        }, {
+                            "value": 26404973,
+                            "name": "河    南"
+                        }, {
+                            "value": 17253385,
+                            "name": "湖    北"
+                        }, {
+                            "value": 19029894,
+                            "name": "湖    南"
+                        }, {
+                            "value": 32222752,
+                            "name": "广    东"
+                        }, {
+                            "value": 13467663,
+                            "name": "广    西"
+                        }, {
+                            "value": 2451819,
+                            "name": "海    南"
+                        }, {
+                            "value": 10272559,
+                            "name": "重    庆"
+                        }, {
+                            "value": 26383458,
+                            "name": "四    川"
+                        }, {
+                            "value": 10745630,
+                            "name": "贵    州"
+                        }, {
+                            "value": 12695396,
+                            "name": "云    南"
+                        }, {
+                            "value": 689521,
+                            "name": "西    藏"
+                        }, {
+                            "value": 11084516,
+                            "name": "陕    西"
+                        }, {
+                            "value": 7113833,
+                            "name": "甘    肃"
+                        }, {
+                            "value": 1586635,
+                            "name": "青    海"
+                        }, {
+                            "value": 1945064,
+                            "name": "宁    夏"
+                        }, {
+                            "value": 6902850,
+                            "name": "新    疆"
+                        }, ],
+                        //小鸟图片
+
+                        image: "data:image/png;base64,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"
+                    }
+                    var myChart5 = echarts3.init(document.getElementById('main2'));
+                    myChart5.showLoading();
+                    //温馨提示：image 选取有严格要求不可过大；，否则firefox不兼容  iconfont上面的图标可以
+                    var maskImage = new Image();
+                    maskImage.src = data.image;
+                    color = ["#0000C6", "#4A4AFF", "#6A6AFF", "#2894FF", "#84c1ff", '#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'];
+
+                    maskImage.onload = function() {
+                        myChart5.setOption({
+
+                            tooltip: {
+                                show: false
+                            },
+                            series: [{
+                                type: 'wordCloud',
+                                gridSize: 1,
+                                sizeRange: [12, 55],
+                                rotationRange: [-45, 0, 45, 90],
+                                maskImage: maskImage,
+                                textStyle: {
+                                    normal: {
+                                        color: function() {
+                                            return color[Math.round(Math.random() * 9)]
+                                        }
+                                    }
+                                },
+                                left: 'center',
+                                top: 'center',
+                                // width: '100%',
+                                // height: '100%',
+                                right: null,
+                                bottom: null,
+                                // width: 300,
+                                // height: 200,
+                                // top: 20,
+                                data: data.value
+                            }]
+                        })
+
+                        myChart5.hideLoading();
+
+
+                        window.addEventListener("resize", function() {
+                            myChart5.resize()
+                        });
+                        myChart5.on('click', function(params) {
+                            var yt = alert("鼠标点击事件,您刚才单击了:" + params.name);
+                            window.open('http://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+                        });
+
+                    }
+
+
+
+                }
+
+
+                var myChart6 = echarts.init(document.getElementById("main6"));
+
+
+                var data = [
+                    //月份，出生人数，死亡人数
+                    [11, 8.3584, 1.9947],
+                    [12, 8.4861, 2.2150],
+                    [1, 6.1196, 1.6185],
+                    [2, 5.7398, 1.9468],
+                    [3, 5.7913, 2.1997],
+                    [4, 4.9836, 2.0746],
+                    [5, 5.3602, 2.1805],
+                    [6, 5.3107, 2.0464],
+                    [7, 5.4875, 2.0982],
+                    [8, 5.6654, 2.2113],
+                    [9, 5.0320, 2.0815],
+
+
+                ];
+
+                const schema = [{
+                        name: 'date',
+                        index: 0,
+                        text: '月'
+                    }, {
+
+                        name: 'nn',
+                        index: 1,
+                        text: '出生人数'
+                    },
+
+                    {
+                        name: 'die',
+                        index: 2,
+                        text: '死亡人数'
+                    }
+                ];
+                const itemStyle = {
+                    opacity: 0.8,
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: '#fff'
+                };
+                myChart6.showLoading();
+                myChart6.setOption({
+                    color: ["#a4eaff"],
+                    title: {
+                        text: '广西2010年人口出生和死亡情况',
+                        textStyle: {
+                            color: 'white',
+                            fontWeight: 'bold',
+
+                        }
+
+                    },
+
+                    legend: {
+                        top: "13%",
+                        data: ['人口'],
+                        textStyle: {
+                            color: "#ccc"
+                        }
+                    },
+                    grid: {
+                        left: '10%',
+                        right: "20%",
+                        top: '30%',
+                        bottom: '10%'
+                    },
+                    tooltip: {
+
+                        formatter: function(param) {
+                            var value = param.value;
+
+                            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' +
+                                ' ' + value[0] + '月：' +
+                                '</div>' +
+                                schema[1].text + '：' + value[1] + "万人" + '<br>' +
+                                schema[2].text + '：' + value[2] + "万人" + '<br>';
+                        }
+                    },
+                    xAxis: {
+                        type: 'value',
+                        name: '月份',
+                        nameGap: 20,
+                        nameTextStyle: {
+                            fontSize: 16
+                        },
+                        max: 12,
+                        splitLine: {
+                            show: false
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        },
+                        scale: true,
+                        show: true,
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    yAxis: {
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white',
+                                width: 1, //这里是为了突出显示加上的
+                            }
+                        },
+                        scale: true,
+                        show: true,
+                        splitLine: {
+                            show: false
+                        },
+                        type: 'value',
+                        name: '出生人口',
+                        nameLocation: 'end',
+
+
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    visualMap: [{
+                        left: '70%',
+                        top: '40%',
+                        dimension: 2,
+                        min: 1.5,
+                        max: 2.2,
+                        itemWidth: 10,
+                        itemHeight: 50,
+                        calculable: true,
+                        precision: 0.1,
+                        text: ['死亡人口'],
+
+                        textGap: 20,
+                        inRange: {
+                            symbolSize: [10, 70]
+                        },
+                        outOfRange: {
+                            symbolSize: [10, 70],
+                            color: ['rgba(255,255,255,0.4)']
+                        },
+                        controller: {
+                            inRange: {
+                                color: ['#a4eaff']
+                            },
+                            outOfRange: {
+                                color: ['#fff']
+                            }
+                        }
+                    }, ],
+                    series: [{
+                            name: '人口',
+                            type: 'scatter',
+                            //itemStyle: itemStyle,
+                            data: data
+                        },
+
+                    ]
+                });
+
+                setTimeout(function() {
+                    myChart6.hideLoading();
+                }, 500);
+
+
+
+
+                myChart1.group = 'group1';
+                myChart2.group = 'group1';
+                myChart3.group = 'group1';
+
+                echarts.connect('group1')
+            </script>
+</body>
+
+</html>
